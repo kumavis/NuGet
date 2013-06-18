@@ -49,7 +49,9 @@ namespace NuGet.Common
             {
                 try
                 {
-                    return System.Console.WindowWidth;
+                    int width = System.Console.WindowWidth;
+                    if (width==0) width = 60;
+                    return width;
                 }
                 catch (IOException)
                 {
